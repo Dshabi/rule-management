@@ -1,0 +1,20 @@
+.gradle
+.idea
+/gradle
+**/out
+**/build
+build/
+logs/
+gradlew
+gradlew.bat
+.dubbo*
+
+
+### IntelliJ IDEA ###
+.idea
+*.iws
+*.iml
+*.ipr
+
+rule-management-repository/src/main/resources/autogen
+rule-management-repository/build.gradle

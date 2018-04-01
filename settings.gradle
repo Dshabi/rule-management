@@ -1,0 +1,7 @@
+rootProject.name = 'rule-management'
+include 'rule-management-repository'
+include 'rule-management-common'
+include 'rule-management-api'
+include 'rule-management-contract'
+include 'rule-management-service'
+include 'rule-management-logic'
