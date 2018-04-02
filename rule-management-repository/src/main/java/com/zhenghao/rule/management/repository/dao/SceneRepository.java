@@ -16,7 +16,7 @@ public class SceneRepository {
     @Autowired
     private ScenePOMapper scenePOMapper;
 
-    public List<Scene> listAllScene() {
+    public List<Scene> listAll() {
         return scenePOMapper.selectByExample(null).stream()
                 .map(SceneConvert::fromPO)
                 .collect(Collectors.toList());

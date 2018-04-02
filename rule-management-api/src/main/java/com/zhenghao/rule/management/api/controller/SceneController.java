@@ -17,12 +17,12 @@ public class SceneController {
     private SceneServiceImpl sceneService;
 
     @RequestMapping(value = "/listAll", method = RequestMethod.GET)
-    public BaseResponse listAllScene() {
-        return BaseResponse.newSuccessResponse(sceneService.listAllScene());
+    public BaseResponse listAll() {
+        return BaseResponse.newSuccessResponse(sceneService.listAll());
     }
 
     @RequestMapping(value = "/insert", method = RequestMethod.POST)
-    public BaseResponse insertScene(@RequestBody Scene scene) {
+    public BaseResponse insert(@RequestBody Scene scene) {
         return BaseResponse.newSuccessResponse(sceneService.insert(scene));
     }
 }

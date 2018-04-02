@@ -13,8 +13,8 @@ public class SceneServiceImpl {
     @Autowired
     private SceneRepository sceneRepository;
 
-    public List<Scene> listAllScene() {
-        return sceneRepository.listAllScene();
+    public List<Scene> listAll() {
+        return sceneRepository.listAll();
     }
 
     public boolean insert(Scene scene) {
