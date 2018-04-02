@@ -14,11 +14,13 @@ ext {
     lombokVersion = '1.16.12'
     commonsBeanUtils = '1.9.3'
     fastJsonVersion = '1.2.44'
-    
+    modelMapperVersion = '1.1.2'
+
     //database
     mybatisVersion = '3.3.0'
     mybatisSpringVersion = '1.2.5'
     mysqlConnectorVersion = '5.1.37'
+    druidVersion = '1.1.6'
     
     //测试依赖
     h2Version = '1.4.190'
@@ -102,8 +104,7 @@ subprojects {
             compile "org.springframework:spring-tx:$springVersion"
             compile "org.springframework:spring-context:$springVersion"
             compile "org.springframework.boot:spring-boot-starter-validation:$springBootVersion"
-           
-            
+
             //工具依赖
             compile "com.google.guava:guava:$guavaVersion"
             compile "commons-collections:commons-collections:$commonsCollectionVersion"
@@ -123,6 +124,7 @@ subprojects {
             compile "org.mybatis:mybatis:$mybatisVersion"
             compile "org.mybatis:mybatis-spring:$mybatisSpringVersion"
             compile "org.springframework:spring-jdbc:$springVersion"
+            compile "com.alibaba:druid:$druidVersion"
        
             testCompile "com.h2database:h2:$h2Version"
 
@@ -170,6 +172,8 @@ project(":rule-management-repository") {
 project(":rule-management-common") {
     dependencies {
         compile project(":rule-management-contract")
+
+        compile "org.modelmapper:modelmapper:$modelMapperVersion"
     }
 }
 
