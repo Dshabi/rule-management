@@ -7,7 +7,7 @@ import org.modelmapper.convention.MatchingStrategies;
 import java.lang.reflect.Type;
 import java.util.List;
 
-public class ModelUtils {
+public class ModelHelper {
 
     private static final ModelMapper modelMapper = new ModelMapper();
 
