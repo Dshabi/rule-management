@@ -35,7 +35,7 @@ public class ConditionRepository {
 
     public long insert(Condition condition) {
         ConditionPO conditionPO = ConditionConvert.toPO(condition);
-        conditionPOMapper.insert(conditionPO);
+        conditionPOMapper.insertSelective(conditionPO);
         return conditionPO.getId();
     }
 

@@ -2,7 +2,7 @@ package com.zhenghao.rule.management.common.model;
 
 import java.io.Serializable;
 
-public class CollectionPO implements Serializable {
+public class CollocationPO implements Serializable {
     private Long id;
 
     private Long sceneId;
@@ -76,7 +76,7 @@ public class CollectionPO implements Serializable {
         if (getClass() != that.getClass()) {
             return false;
         }
-        CollectionPO other = (CollectionPO) that;
+        CollocationPO other = (CollocationPO) that;
         return (this.getId() == null ? other.getId() == null : this.getId().equals(other.getId()))
             && (this.getSceneId() == null ? other.getSceneId() == null : this.getSceneId().equals(other.getSceneId()))
             && (this.getRuleId() == null ? other.getRuleId() == null : this.getRuleId().equals(other.getRuleId()))

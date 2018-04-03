@@ -3,14 +3,14 @@ package com.zhenghao.rule.management.common.model;
 import java.util.ArrayList;
 import java.util.List;
 
-public class CollectionPOExample {
+public class CollocationPOExample {
     protected String orderByClause;
 
     protected boolean distinct;
 
     protected List<Criteria> oredCriteria;
 
-    public CollectionPOExample() {
+    public CollocationPOExample() {
         oredCriteria = new ArrayList<Criteria>();
     }
 

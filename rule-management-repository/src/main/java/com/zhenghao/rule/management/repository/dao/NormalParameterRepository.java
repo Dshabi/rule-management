@@ -30,7 +30,7 @@ public class NormalParameterRepository {
 
     public long insert(NormalParameter normalParameter) {
         NormalParameterPO normalParameterPO = NormalParameterConvert.toPO(normalParameter);
-        normalParameterPOMapper.insert(normalParameterPO);
+        normalParameterPOMapper.insertSelective(normalParameterPO);
         return normalParameterPO.getId();
     }
 

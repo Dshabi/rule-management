@@ -17,6 +17,10 @@ public class SceneServiceImpl {
         return sceneRepository.listAll();
     }
 
+    public Scene getById(long id) {
+        return sceneRepository.getById(id);
+    }
+
     public boolean insert(Scene scene) {
         sceneRepository.insert(scene);
         return true;

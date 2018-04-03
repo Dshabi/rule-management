@@ -24,7 +24,7 @@ public class AttributeRepository {
 
     public long insert(Attribute attribute) {
         AttributePO attributePO = ModelHelper.map(attribute, AttributePO.class);
-        attributePOMapper.insert(attributePO);
+        attributePOMapper.insertSelective(attributePO);
         return attributePO.getId();
     }
 

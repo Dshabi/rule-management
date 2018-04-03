@@ -23,18 +23,22 @@ public class RuleRepository {
     }
 
     public Rule getById(long id) {
-        return RuleConvert.fromPO(rulePOMapper.selectByPrimaryKey(id));
+        RulePO rulePO = rulePOMapper.selectByPrimaryKey(id);
+        if (rulePO == null) {
+            return null;
+        }
+        return RuleConvert.fromPO(rulePO);
     }
 
     public long insert(Rule rule) {
         RulePO rulePO = RuleConvert.toPO(rule);
-        rulePOMapper.insert(rulePO);
+        rulePOMapper.insertSelective(rulePO);
         return rulePO.getId();
     }
 
     public void update(Rule rule) {
         RulePO rulePO = RuleConvert.toPO(rule);
-        rulePOMapper.updateByPrimaryKey(rulePO);
+        rulePOMapper.updateByPrimaryKeySelective(rulePO);
     }
 
     public void delete(long id) {

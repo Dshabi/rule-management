@@ -2,6 +2,7 @@ package com.zhenghao.rule.management.repository.dao;
 
 import com.zhenghao.rule.management.common.convert.SceneConvert;
 import com.zhenghao.rule.management.common.model.ScenePO;
+import com.zhenghao.rule.management.common.util.ModelHelper;
 import com.zhenghao.rule.management.contract.vo.Scene;
 import com.zhenghao.rule.management.repository.mapper.ScenePOMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,9 +23,14 @@ public class SceneRepository {
                 .collect(Collectors.toList());
     }
 
+    public Scene getById(long id) {
+        ScenePO scenePO = scenePOMapper.selectByPrimaryKey(id);
+        return SceneConvert.fromPO(scenePO);
+    }
+
     public long insert(Scene scene) {
         ScenePO scenePO = SceneConvert.toPO(scene);
-        scenePOMapper.insert(scenePO);
+        scenePOMapper.insertSelective(scenePO);
         return scenePO.getId();
     }
 }

@@ -29,6 +29,18 @@ public class RuleServiceImpl {
                 .collect(Collectors.toList());
     }
 
+    public Rule getById(long id) {
+        return ruleRepository.getById(id);
+    }
+
+    public Rule getWithConditions(long id) {
+        Rule rule = getById(id);
+        if (rule == null) {
+            throw new IllegalArgumentException("要查找的Rule不存在。Id: " + id);
+        }
+        return fitConditions(rule);
+    }
+
     @Transactional(rollbackFor = Exception.class)
     public boolean insert(Rule rule) {
         String relConditionIds = insertConditions(rule.getConditions());
@@ -42,7 +54,7 @@ public class RuleServiceImpl {
     public boolean update(Rule rule) {
         long id = rule.getId();
 
-        Rule old = ruleRepository.getById(id);
+        Rule old = getById(id);
         List<Long> oldConditionIds = listFromExpression(old.getRelConditionIds());
         conditionRepository.deleteByIds(oldConditionIds);
 
@@ -55,7 +67,7 @@ public class RuleServiceImpl {
 
     @Transactional(rollbackFor = Exception.class)
     public boolean delete(long id) {
-        Rule rule = ruleRepository.getById(id);
+        Rule rule = getById(id);
 
         List<Long> conditionIds = listFromExpression(rule.getRelConditionIds());
         conditionRepository.deleteByIds(conditionIds);
